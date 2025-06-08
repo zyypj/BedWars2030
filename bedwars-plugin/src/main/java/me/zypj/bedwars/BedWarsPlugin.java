@@ -35,6 +35,7 @@ public final class BedWarsPlugin extends JavaPlugin {
 
         Debug.setPlugin(this);
         pluginBootstrap = new PluginBootstrap();
+        pluginBootstrap.init();
 
         Debug.log("&aServices loaded in " + stopwatch.stop() + "!", true);
         Debug.log("", true);
