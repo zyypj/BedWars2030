@@ -1,0 +1,83 @@
+plugins {
+    id 'java'
+    id 'com.diffplug.spotless' version '6.13.0'
+    id 'com.github.johnrengelman.shadow' version '7.1.0'
+}
+
+group = 'me.zypj'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+// Root classpath include
+dependencies {
+    implementation project(':bedwars-api')
+    implementation project(':bedwars-plugin')
+}
+
+// All subprojects dependencies
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    buildDir = "${rootProject.buildDir}/${project.name}"
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compileOnly files("$rootDir/libs/spigot-1.8.8.jar")
+        compileOnly 'org.projectlombok:lombok:1.18.38'
+
+        annotationProcessor 'org.projectlombok:lombok:1.18.38'
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+    }
+
+    processResources {
+        filesMatching('plugin.yml') {
+            expand(version: project.version)
+        }
+    }
+}
+
+project(':bedwars-plugin') {
+    dependencies {
+        implementation project(':bedwars-api')
+    }
+}
+
+shadowJar {
+    archiveFileName.set("BedWars2023-${project.version}.jar")
+
+    relocate 'me.zypj.bedwars.api', 'me.zypj.bedwars.api'
+    relocate 'me.zypj.bedwars', 'me.zypj.bedwars'
+
+    subprojects.each { sp ->
+        def ss = sp.extensions.findByType(SourceSetContainer)
+        if (ss != null) {
+            from(ss.main.output)
+        }
+    }
+
+    mergeServiceFiles()
+}
+
+spotless {
+    java {
+        target("src/**/*.java")
+        googleJavaFormat("1.7").aosp()
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+}

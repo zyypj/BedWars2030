@@ -1,0 +1,3 @@
+name: bedwars-plugin
+version: '${version}'
+main: me.zypj.bedwars.BedWarsPlugin
