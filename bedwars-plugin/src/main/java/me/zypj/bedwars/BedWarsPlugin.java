@@ -1,17 +1,34 @@
 package me.zypj.bedwars;
 
+import me.zypj.bedwars.api.logger.Debug;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class BedWarsPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        Debug.log("", false);
+        Debug.log("&aStarting BedWars2030...", false);
 
+        loadServices();
+        Debug.log("&2BedWars2030 started in " + stopwatch.stop() + "!", false);
+        Debug.log("", false);
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    private void loadServices() {
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        Debug.log("", true);
+        Debug.log("&eLoading services...", true);
+
+        Debug.setPlugin(this);
+
+        Debug.log("&aServices loaded in " + stopwatch.stop() + "!", true);
+        Debug.log("", true);
     }
 }
