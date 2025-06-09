@@ -1,4 +1,4 @@
-package me.zypj.bedwars.api.factory.visual.hologram.adapter.v1_8_R3;
+package me.zypj.bedwars.api.factory.visual.hologram.adapter.common;
 
 import me.zypj.bedwars.api.factory.visual.hologram.adapter.HologramAdapter;
 import me.zypj.bedwars.api.factory.visual.hologram.model.Hologram;
@@ -8,7 +8,7 @@ import org.bukkit.entity.ArmorStand;
 
 import java.util.*;
 
-public class HologramAdapter1_8_R3 implements HologramAdapter {
+public class HologramAdapterCommon implements HologramAdapter {
     private static final double LINE_HEIGHT = 0.25D;
     private final Map<UUID, List<ArmorStand>> hologramStands = new HashMap<>();
     private final Map<UUID, Location> baseLocations = new HashMap<>();
