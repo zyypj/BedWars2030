@@ -3,6 +3,7 @@ package me.zypj.bedwars;
 import com.google.common.base.Stopwatch;
 import lombok.Getter;
 import me.zypj.bedwars.api.logger.Debug;
+import me.zypj.bedwars.command.MainCommand;
 import me.zypj.bedwars.loader.PluginBootstrap;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -38,6 +39,15 @@ public final class BedWarsPlugin extends JavaPlugin {
         pluginBootstrap.init();
 
         Debug.log("&aServices loaded in " + stopwatch.stop() + "!", true);
+    }
+    private void loadCommands() {
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        Debug.log("", true);
+        Debug.log("&eLoading commands...", true);
+
+        getCommand("bedwars").setExecutor(new MainCommand(this));
+
+        Debug.log("&aCommands loaded in " + stopwatch.stop() + "!", true);
         Debug.log("", true);
     }
 }
