@@ -3,11 +3,13 @@ package me.zypj.bedwars.api.factory.explosive.tnt.adapter.common;
 import me.zypj.bedwars.api.factory.explosive.tnt.adapter.TntAdapter;
 import net.minecraft.server.v1_8_R3.EntityTNTPrimed;
 import net.minecraft.server.v1_8_R3.WorldServer;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
+import org.bukkit.metadata.FixedMetadataValue;
 
 public class TntAdapterCommon implements TntAdapter {
 
@@ -38,8 +40,8 @@ public class TntAdapterCommon implements TntAdapter {
 
         TNTPrimed bukkitTnt = (TNTPrimed) nmsTnt.getBukkitEntity();
         bukkitTnt.setMetadata("tnt-shooter",
-                new org.bukkit.metadata.FixedMetadataValue(
-                        org.bukkit.Bukkit.getPluginManager().getPlugin("BedWars2030"),
+                new FixedMetadataValue(
+                        Bukkit.getPluginManager().getPlugin("BedWars2030"),
                         shooter.getUniqueId().toString()
                 )
         );
