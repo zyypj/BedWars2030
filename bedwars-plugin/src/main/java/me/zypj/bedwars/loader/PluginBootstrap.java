@@ -36,7 +36,7 @@ public class PluginBootstrap {
         Debug.log("", true);
     }
 
-    public void loadServices() {
+    private void loadServices() {
         Stopwatch stopwatch = Stopwatch.createStarted();
         Debug.log("", true);
         Debug.log("&eLoading API services...", true);
@@ -50,7 +50,7 @@ public class PluginBootstrap {
         Debug.log("", true);
     }
 
-    public void loadSubInstances() {
+    private void loadSubInstances() {
         Stopwatch stopwatch = Stopwatch.createStarted();
         Debug.log("", true);
         Debug.log("&eLoading SubCommands instances...", true);
