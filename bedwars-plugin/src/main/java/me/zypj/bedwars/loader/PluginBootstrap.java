@@ -7,6 +7,7 @@ import me.zypj.bedwars.BedWarsPlugin;
 import me.zypj.bedwars.api.factory.visual.hologram.service.HologramService;
 import me.zypj.bedwars.api.file.service.ConfigService;
 import me.zypj.bedwars.api.logger.Debug;
+import me.zypj.bedwars.command.manager.SubInstanceManager;
 
 @Getter
 @RequiredArgsConstructor
@@ -16,6 +17,9 @@ public class PluginBootstrap {
     private ConfigService configService;
     private HologramService hologramService;
 
+
+    private SubInstanceManager subInstanceManager;
+
     public void init() {
         Stopwatch stopwatch = Stopwatch.createStarted();
         Debug.log("", true);
@@ -23,6 +27,7 @@ public class PluginBootstrap {
 
         plugin.saveDefaultConfig();
         loadServices();
+        loadSubInstances();
 
         Debug.log("&aInstances loaded in " + stopwatch.stop() + "!", true);
         Debug.log("", true);
@@ -38,6 +43,16 @@ public class PluginBootstrap {
 
         Debug.log("&aAPI services loaded in " + stopwatch.stop() + "!", true);
         Debug.log("", true);
+    }
 
+    public void loadSubInstances() {
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        Debug.log("", true);
+        Debug.log("&eLoading SubCommands instances...", true);
+
+        subInstanceManager = new SubInstanceManager(plugin);
+
+        Debug.log("&aSubCommands instances loaded in " + stopwatch.stop() + "!", true);
+        Debug.log("", true);
     }
 }

@@ -1,3 +1,6 @@
 name: BedWars2030
 version: '${version}'
 main: me.zypj.bedwars.BedWarsPlugin
+commands:
+  bedwars:
+    aliases: [bw]
