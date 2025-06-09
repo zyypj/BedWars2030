@@ -1,1 +1,17 @@
 debug: true
+
+tnt:
+  knockback:
+    horizontal: 1.5
+    vertical: 0.8
+
+  explosion:
+    power: 4.0
+    break-blocks: false
+
+  damage:
+    self: 4.0
+    others: 8.0
+
+  fuse-time:
+    ticks: 80

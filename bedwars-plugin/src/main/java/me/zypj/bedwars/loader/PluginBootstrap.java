@@ -8,15 +8,18 @@ import me.zypj.bedwars.api.factory.visual.hologram.service.HologramService;
 import me.zypj.bedwars.api.file.service.ConfigService;
 import me.zypj.bedwars.api.logger.Debug;
 import me.zypj.bedwars.command.manager.SubInstanceManager;
+import me.zypj.bedwars.service.explosive.tnt.TntService;
 
 @Getter
 @RequiredArgsConstructor
 public class PluginBootstrap {
 
     private final BedWarsPlugin plugin;
+
     private ConfigService configService;
     private HologramService hologramService;
 
+    private TntService tntService;
 
     private SubInstanceManager subInstanceManager;
 
@@ -40,6 +43,8 @@ public class PluginBootstrap {
 
         configService = new ConfigService(plugin);
         hologramService = new HologramService();
+
+        tntService = new TntService(plugin);
 
         Debug.log("&aAPI services loaded in " + stopwatch.stop() + "!", true);
         Debug.log("", true);

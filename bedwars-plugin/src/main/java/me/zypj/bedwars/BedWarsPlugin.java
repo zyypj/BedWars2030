@@ -4,7 +4,9 @@ import com.google.common.base.Stopwatch;
 import lombok.Getter;
 import me.zypj.bedwars.api.logger.Debug;
 import me.zypj.bedwars.command.MainCommand;
+import me.zypj.bedwars.listener.explosive.TntListener;
 import me.zypj.bedwars.loader.PluginBootstrap;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 @Getter
@@ -19,6 +21,9 @@ public final class BedWarsPlugin extends JavaPlugin {
         Debug.log("&aStarting BedWars2030...", false);
 
         loadServices();
+
+        loadListeners();
+        loadCommands();
 
         Debug.log("&2BedWars2030 started in " + stopwatch.stop() + "!", false);
         Debug.log("", false);
@@ -40,6 +45,20 @@ public final class BedWarsPlugin extends JavaPlugin {
 
         Debug.log("&aServices loaded in " + stopwatch.stop() + "!", true);
     }
+
+    private void loadListeners() {
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        Debug.log("", true);
+        Debug.log("&eLoading listeners...", true);
+
+        registerListeners(
+                new TntListener(this)
+        );
+
+        Debug.log("&aListeners loaded in " + stopwatch.stop() + "!", true);
+        Debug.log("", true);
+    }
+
     private void loadCommands() {
         Stopwatch stopwatch = Stopwatch.createStarted();
         Debug.log("", true);
@@ -49,5 +68,11 @@ public final class BedWarsPlugin extends JavaPlugin {
 
         Debug.log("&aCommands loaded in " + stopwatch.stop() + "!", true);
         Debug.log("", true);
+    }
+
+    private void registerListeners(Listener... listeners) {
+        for (Listener listener : listeners) {
+            getServer().getPluginManager().registerEvents(listener, this);
+        }
     }
 }
