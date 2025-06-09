@@ -3,7 +3,7 @@ package me.zypj.bedwars;
 import com.google.common.base.Stopwatch;
 import lombok.Getter;
 import me.zypj.bedwars.api.logger.Debug;
-import me.zypj.bedwars.bootstrap.PluginBootstrap;
+import me.zypj.bedwars.loader.PluginBootstrap;
 import org.bukkit.plugin.java.JavaPlugin;
 
 @Getter

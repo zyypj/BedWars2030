@@ -1,4 +1,4 @@
-package me.zypj.bedwars.bootstrap;
+package me.zypj.bedwars.loader;
 
 import com.google.common.base.Stopwatch;
 import lombok.Getter;
