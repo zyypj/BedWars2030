@@ -15,9 +15,21 @@ public class PluginBootstrap {
         Debug.log("", true);
         Debug.log("&eLoading instances...", true);
 
-        hologramService = new HologramService();
+        loadServices();
 
         Debug.log("&aInstances loaded in " + stopwatch.stop() + "!", true);
         Debug.log("", true);
+    }
+
+    public void loadServices() {
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        Debug.log("", true);
+        Debug.log("&eLoading API services...", true);
+
+        hologramService = new HologramService();
+
+        Debug.log("&aAPI services loaded in " + stopwatch.stop() + "!", true);
+        Debug.log("", true);
+
     }
 }
