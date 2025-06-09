@@ -14,7 +14,7 @@ public class Debug {
         message = ChatColor.translateAlternateColorCodes('&', message);
 
         if (debug) {
-            if (plugin.getConfig().getBoolean("debug", false)) {
+            if (plugin != null && plugin.getConfig().getBoolean("debug", false)) {
                 Bukkit.getServer().getConsoleSender().sendMessage("§f§l[BedWars2030]§8§l [DEBUG]§f " + message);
             }
 
