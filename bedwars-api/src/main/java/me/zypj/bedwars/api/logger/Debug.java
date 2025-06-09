@@ -1,6 +1,7 @@
 package me.zypj.bedwars.api.logger;
 
 import lombok.Setter;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,12 +15,12 @@ public class Debug {
 
         if (debug) {
             if (plugin.getConfig().getBoolean("debug", false)) {
-                plugin.getServer().getConsoleSender().sendMessage("§f§l[BedWars2030]§8§l [DEBUG]§f " + message);
+                Bukkit.getServer().getConsoleSender().sendMessage("§f§l[BedWars2030]§8§l [DEBUG]§f " + message);
             }
 
             return;
         }
 
-        plugin.getServer().getConsoleSender().sendMessage("§f§l[BedWars2030]§f " + message);
+        Bukkit.getServer().getConsoleSender().sendMessage("§f§l[BedWars2030]§f " + message);
     }
 }
