@@ -54,34 +54,40 @@ public class HologramAdapterCommon implements HologramAdapter {
 
     @Override
     public void updateLines(UUID id, List<String> lines) {
-        Location base = baseLocations.get(id);
-        if (base == null) {
-            throw new IllegalArgumentException("Hologram id not found: " + id);
-        }
-
-        List<ArmorStand> old = hologramStands.remove(id);
-        if (old != null) {
-            old.forEach(ArmorStand::remove);
-        }
+        Location base = requireBaseLocation(id);
         World world = base.getWorld();
         if (world == null) {
             throw new IllegalArgumentException("Base location world cannot be null");
         }
 
-        List<ArmorStand> stands = new ArrayList<>();
-        for (int i = 0; i < lines.size(); i++) {
-            Location spawnLoc = base.clone().add(0, -i * LINE_HEIGHT, 0);
-            ArmorStand stand = world.spawn(spawnLoc, ArmorStand.class);
-            stand.setVisible(false);
-            stand.setGravity(false);
-            stand.setCustomName(lines.get(i));
-            stand.setCustomNameVisible(true);
-            stand.setSmall(true);
-            stand.setBasePlate(false);
-            stand.setArms(false);
-            stands.add(stand);
+        List<ArmorStand> stands = hologramStands.get(id);
+        if (stands == null) {
+            throw new IllegalArgumentException("Hologram id not found: " + id);
         }
-        hologramStands.put(id, stands);
+
+        int oldSize = stands.size();
+        int newSize = lines.size();
+        int minSize = Math.min(oldSize, newSize);
+
+        for (int i = 0; i < minSize; i++) {
+            ArmorStand stand = stands.get(i);
+            stand.teleport(getLineLocation(base, i));
+            stand.setCustomName(lines.get(i));
+        }
+
+        if (oldSize > newSize) {
+            for (int i = newSize; i < oldSize; i++) {
+                stands.get(i).remove();
+            }
+            stands.subList(newSize, oldSize).clear();
+        }
+
+        else if (newSize > oldSize) {
+            for (int i = oldSize; i < newSize; i++) {
+                ArmorStand stand = spawnStand(world, getLineLocation(base, i), lines.get(i));
+                stands.add(stand);
+            }
+        }
     }
 
     @Override
@@ -96,5 +102,29 @@ public class HologramAdapterCommon implements HologramAdapter {
             stand.teleport(newLoc.clone().add(0, -i * LINE_HEIGHT, 0));
         }
         baseLocations.put(id, newLoc.clone());
+    }
+
+    private Location getLineLocation(Location base, int index) {
+        return base.clone().add(0, -index * LINE_HEIGHT, 0);
+    }
+
+    private ArmorStand spawnStand(World world, Location loc, String text) {
+        ArmorStand stand = world.spawn(loc, ArmorStand.class);
+        stand.setVisible(false);
+        stand.setGravity(false);
+        stand.setCustomName(text);
+        stand.setCustomNameVisible(true);
+        stand.setSmall(true);
+        stand.setBasePlate(false);
+        stand.setArms(false);
+        return stand;
+    }
+
+    private Location requireBaseLocation(UUID id) {
+        Location base = baseLocations.get(id);
+        if (base == null) {
+            throw new IllegalArgumentException("Hologram id not found: " + id);
+        }
+        return base;
     }
 }
