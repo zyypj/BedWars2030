@@ -1,7 +1,7 @@
-package me.zypj.bedwars.api.factory.visual.hologram.adapter.provider;
+package me.zypj.bedwars.system.visual.hologram.adapter.provider;
 
-import me.zypj.bedwars.api.factory.visual.hologram.adapter.HologramAdapter;
-import me.zypj.bedwars.api.factory.visual.hologram.adapter.common.HologramAdapterCommon;
+import me.zypj.bedwars.system.visual.hologram.adapter.HologramAdapter;
+import me.zypj.bedwars.system.visual.hologram.adapter.common.HologramAdapterCommon;
 
 public class HologramAdapterProvider {
     public static HologramAdapter getAdapter() {

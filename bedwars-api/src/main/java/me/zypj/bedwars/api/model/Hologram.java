@@ -1,4 +1,4 @@
-package me.zypj.bedwars.api.factory.visual.hologram.model;
+package me.zypj.bedwars.api.model;
 
 import lombok.Data;
 import org.bukkit.Location;

@@ -1,10 +1,10 @@
-package me.zypj.bedwars.api.factory.visual.hologram.service;
+package me.zypj.bedwars.system.visual.hologram.service;
 
 import lombok.Getter;
-import me.zypj.bedwars.api.factory.visual.hologram.HologramFactory;
-import me.zypj.bedwars.api.factory.visual.hologram.adapter.HologramAdapter;
-import me.zypj.bedwars.api.factory.visual.hologram.adapter.provider.HologramAdapterProvider;
-import me.zypj.bedwars.api.factory.visual.hologram.model.Hologram;
+import me.zypj.bedwars.system.visual.hologram.factory.HologramFactory;
+import me.zypj.bedwars.system.visual.hologram.adapter.HologramAdapter;
+import me.zypj.bedwars.system.visual.hologram.adapter.provider.HologramAdapterProvider;
+import me.zypj.bedwars.api.model.Hologram;
 import org.bukkit.Location;
 
 import java.util.HashMap;

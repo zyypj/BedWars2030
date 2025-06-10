@@ -1,7 +1,7 @@
-package me.zypj.bedwars.api.factory.visual.hologram.adapter.common;
+package me.zypj.bedwars.system.visual.hologram.adapter.common;
 
-import me.zypj.bedwars.api.factory.visual.hologram.adapter.HologramAdapter;
-import me.zypj.bedwars.api.factory.visual.hologram.model.Hologram;
+import me.zypj.bedwars.system.visual.hologram.adapter.HologramAdapter;
+import me.zypj.bedwars.api.model.Hologram;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.ArmorStand;

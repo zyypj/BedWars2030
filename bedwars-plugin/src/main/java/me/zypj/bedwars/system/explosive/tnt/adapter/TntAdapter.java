@@ -1,4 +1,4 @@
-package me.zypj.bedwars.api.factory.explosive.tnt.adapter;
+package me.zypj.bedwars.system.explosive.tnt.adapter;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;

@@ -1,9 +1,9 @@
-package me.zypj.bedwars.service.explosive.tnt;
+package me.zypj.bedwars.system.explosive.tnt.service;
 
 import lombok.Getter;
 import me.zypj.bedwars.BedWarsPlugin;
-import me.zypj.bedwars.api.factory.explosive.tnt.adapter.TntAdapter;
-import me.zypj.bedwars.api.factory.explosive.tnt.adapter.provider.TntAdapterProvider;
+import me.zypj.bedwars.system.explosive.tnt.adapter.TntAdapter;
+import me.zypj.bedwars.system.explosive.tnt.adapter.provider.TntAdapterProvider;
 import me.zypj.bedwars.api.file.path.ConfigPath;
 import me.zypj.bedwars.api.file.service.ConfigService;
 import me.zypj.bedwars.api.logger.Debug;

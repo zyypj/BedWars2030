@@ -1,6 +1,6 @@
-package me.zypj.bedwars.api.factory.explosive.tnt.adapter.common;
+package me.zypj.bedwars.system.explosive.tnt.adapter.common;
 
-import me.zypj.bedwars.api.factory.explosive.tnt.adapter.TntAdapter;
+import me.zypj.bedwars.system.explosive.tnt.adapter.TntAdapter;
 import net.minecraft.server.v1_8_R3.EntityTNTPrimed;
 import net.minecraft.server.v1_8_R3.WorldServer;
 import org.bukkit.Bukkit;

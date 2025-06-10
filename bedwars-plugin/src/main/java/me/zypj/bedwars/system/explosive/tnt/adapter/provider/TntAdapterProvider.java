@@ -1,8 +1,8 @@
-package me.zypj.bedwars.api.factory.explosive.tnt.adapter.provider;
+package me.zypj.bedwars.system.explosive.tnt.adapter.provider;
 
 
-import me.zypj.bedwars.api.factory.explosive.tnt.adapter.TntAdapter;
-import me.zypj.bedwars.api.factory.explosive.tnt.adapter.common.TntAdapterCommon;
+import me.zypj.bedwars.system.explosive.tnt.adapter.TntAdapter;
+import me.zypj.bedwars.system.explosive.tnt.adapter.common.TntAdapterCommon;
 import org.bukkit.Bukkit;
 
 public class TntAdapterProvider {

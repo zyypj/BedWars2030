@@ -4,11 +4,11 @@ import com.google.common.base.Stopwatch;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import me.zypj.bedwars.BedWarsPlugin;
-import me.zypj.bedwars.api.factory.visual.hologram.service.HologramService;
+import me.zypj.bedwars.system.visual.hologram.service.HologramService;
 import me.zypj.bedwars.api.file.service.ConfigService;
 import me.zypj.bedwars.api.logger.Debug;
 import me.zypj.bedwars.command.manager.SubInstanceManager;
-import me.zypj.bedwars.service.explosive.tnt.TntService;
+import me.zypj.bedwars.system.explosive.tnt.service.TntService;
 
 @Getter
 @RequiredArgsConstructor
