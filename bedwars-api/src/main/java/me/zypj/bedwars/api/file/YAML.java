@@ -168,7 +168,7 @@ public class YAML extends YamlConfiguration {
     private void loadConfig() throws IOException, InvalidConfigurationException {
         if (!configFile.exists()) {
             String folderName = configFile.getParentFile().getName();
-            String resourcePath = folderName = "/" + configFile.getName();
+            String resourcePath = folderName + "/" + configFile.getName();
             InputStream resource = plugin.getResource(resourcePath);
 
             if (resource == null) resource = plugin.getResource(configFile.getName());
