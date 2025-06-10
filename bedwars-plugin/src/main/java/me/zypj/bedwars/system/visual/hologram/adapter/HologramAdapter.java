@@ -1,6 +1,6 @@
 package me.zypj.bedwars.system.visual.hologram.adapter;
 
-import me.zypj.bedwars.api.model.Hologram;
+import me.zypj.bedwars.common.model.Hologram;
 import org.bukkit.Location;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package me.zypj.bedwars.api.model;
+package me.zypj.bedwars.common.model;
 
 import lombok.Data;
 import org.bukkit.Location;

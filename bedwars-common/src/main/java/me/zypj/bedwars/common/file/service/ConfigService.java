@@ -1,4 +1,4 @@
-package me.zypj.bedwars.api.file.service;
+package me.zypj.bedwars.common.file.service;
 
 import lombok.RequiredArgsConstructor;
 import org.bukkit.plugin.java.JavaPlugin;

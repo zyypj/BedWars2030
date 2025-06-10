@@ -13,7 +13,7 @@ repositories {
 
 // Root classpath include
 dependencies {
-    implementation project(':bedwars-api')
+    implementation project(':bedwars-common')
     implementation project(':bedwars-plugin')
 }
 
@@ -55,14 +55,14 @@ subprojects {
 
 project(':bedwars-plugin') {
     dependencies {
-        implementation project(':bedwars-api')
+        implementation project(':bedwars-common')
     }
 }
 
 shadowJar {
     archiveFileName.set("BedWars2023-${project.version}.jar")
 
-    relocate 'me.zypj.bedwars.api', 'me.zypj.bedwars.api'
+    relocate 'me.zypj.bedwars.common', 'me.zypj.bedwars.common'
     relocate 'me.zypj.bedwars', 'me.zypj.bedwars'
 
     subprojects.each { sp ->

@@ -1,4 +1,4 @@
-package me.zypj.bedwars.api.file;
+package me.zypj.bedwars.common.file;
 
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.InvalidConfigurationException;

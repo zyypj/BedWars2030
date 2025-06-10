@@ -2,7 +2,7 @@ package me.zypj.bedwars.command.subcommand;
 
 import lombok.RequiredArgsConstructor;
 import me.zypj.bedwars.BedWarsPlugin;
-import me.zypj.bedwars.api.logger.Debug;
+import me.zypj.bedwars.common.logger.Debug;
 import org.bukkit.entity.Player;
 
 @RequiredArgsConstructor

@@ -2,7 +2,7 @@ package me.zypj.bedwars;
 
 import com.google.common.base.Stopwatch;
 import lombok.Getter;
-import me.zypj.bedwars.api.logger.Debug;
+import me.zypj.bedwars.common.logger.Debug;
 import me.zypj.bedwars.command.MainCommand;
 import me.zypj.bedwars.listener.explosive.TntListener;
 import me.zypj.bedwars.loader.PluginBootstrap;

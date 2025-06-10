@@ -1,4 +1,4 @@
-package me.zypj.bedwars.api.util;
+package me.zypj.bedwars.common.util;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;

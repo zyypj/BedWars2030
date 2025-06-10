@@ -1,4 +1,4 @@
-package me.zypj.bedwars.api.file.path;
+package me.zypj.bedwars.common.file.path;
 
 public class ConfigPath {
     public static String TNT_PREFIX = "tnt.";

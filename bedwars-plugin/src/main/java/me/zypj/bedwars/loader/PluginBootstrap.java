@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import me.zypj.bedwars.BedWarsPlugin;
 import me.zypj.bedwars.system.visual.hologram.service.HologramService;
-import me.zypj.bedwars.api.file.service.ConfigService;
-import me.zypj.bedwars.api.logger.Debug;
+import me.zypj.bedwars.common.file.service.ConfigService;
+import me.zypj.bedwars.common.logger.Debug;
 import me.zypj.bedwars.command.manager.SubInstanceManager;
 import me.zypj.bedwars.system.explosive.tnt.service.TntService;
 

@@ -4,7 +4,7 @@ import lombok.Getter;
 import me.zypj.bedwars.system.visual.hologram.factory.HologramFactory;
 import me.zypj.bedwars.system.visual.hologram.adapter.HologramAdapter;
 import me.zypj.bedwars.system.visual.hologram.adapter.provider.HologramAdapterProvider;
-import me.zypj.bedwars.api.model.Hologram;
+import me.zypj.bedwars.common.model.Hologram;
 import org.bukkit.Location;
 
 import java.util.HashMap;

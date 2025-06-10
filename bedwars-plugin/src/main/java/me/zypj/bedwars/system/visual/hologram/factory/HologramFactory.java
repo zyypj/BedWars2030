@@ -1,7 +1,7 @@
 package me.zypj.bedwars.system.visual.hologram.factory;
 
 import lombok.RequiredArgsConstructor;
-import me.zypj.bedwars.api.model.Hologram;
+import me.zypj.bedwars.common.model.Hologram;
 import me.zypj.bedwars.system.visual.hologram.service.HologramService;
 import org.bukkit.Location;
 

@@ -2,8 +2,8 @@ package me.zypj.bedwars.listener.explosive;
 
 import lombok.var;
 import me.zypj.bedwars.BedWarsPlugin;
-import me.zypj.bedwars.api.file.path.ConfigPath;
-import me.zypj.bedwars.api.util.TimeUtil;
+import me.zypj.bedwars.common.file.path.ConfigPath;
+import me.zypj.bedwars.common.util.TimeUtil;
 import me.zypj.bedwars.system.explosive.tnt.service.TntService;
 import org.bukkit.Location;
 import org.bukkit.Material;

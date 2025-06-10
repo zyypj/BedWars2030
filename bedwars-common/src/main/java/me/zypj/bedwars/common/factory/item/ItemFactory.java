@@ -1,4 +1,4 @@
-package me.zypj.bedwars.api.factory.item;
+package me.zypj.bedwars.common.factory.item;
 
 import com.cryptomorin.xseries.profiles.builder.XSkull;
 import com.cryptomorin.xseries.profiles.objects.ProfileInputType;

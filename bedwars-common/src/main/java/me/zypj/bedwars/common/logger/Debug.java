@@ -1,4 +1,4 @@
-package me.zypj.bedwars.api.logger;
+package me.zypj.bedwars.common.logger;
 
 import lombok.Setter;
 import org.bukkit.Bukkit;
