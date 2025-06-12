@@ -31,15 +31,15 @@ public class FireballListener implements Listener {
     @EventHandler
     public void onPlayerUse(PlayerInteractEvent e) {
         if (!e.getAction().equals(Action.RIGHT_CLICK_BLOCK) && !e.getAction().equals(Action.RIGHT_CLICK_AIR)) return;
-        ItemStack inHand = e.getItem();
-        if (inHand == null || inHand.getType() != Material.FIREBALL) return;
+        ItemStack itemInHand = e.getItem();
+        if (itemInHand == null || itemInHand.getType() != Material.FIREBALL) return;
 
         Player player = e.getPlayer();
         e.setCancelled(true);
         if (service.isOnCooldown(player)) return;
 
-        inHand.setAmount(inHand.getAmount() - 1);
-        player.setItemInHand(inHand.getAmount() > 0 ? inHand : null);
+        itemInHand.setAmount(itemInHand.getAmount() - 1);
+        player.setItemInHand(itemInHand.getAmount() > 0 ? itemInHand : null);
 
         Vector dir = player.getLocation().getDirection().clone();
         dir.setY(0);

@@ -41,12 +41,12 @@ public class TntListener implements Listener {
         e.setCancelled(true);
 
         Player player = e.getPlayer();
-        ItemStack handItem = player.getItemInHand();
-        if (handItem != null && handItem.getType() == Material.TNT) {
-            int amount = handItem.getAmount() - 1;
+        ItemStack itemInHand = player.getItemInHand();
+        if (itemInHand != null && itemInHand.getType() == Material.TNT) {
+            int amount = itemInHand.getAmount() - 1;
             if (amount > 0) {
-                handItem.setAmount(amount);
-                player.setItemInHand(handItem);
+                itemInHand.setAmount(amount);
+                player.setItemInHand(itemInHand);
             } else {
                 player.setItemInHand(null);
             }
