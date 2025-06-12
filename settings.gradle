@@ -1,3 +1,4 @@
 rootProject.name = 'BedWars2030'
 
 include 'bedwars-plugin', 'bedwars-common'
+include 'bedwars-api'
