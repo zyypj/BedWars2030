@@ -1,5 +1,6 @@
 package me.zypj.bedwars.common.file;
 
+import me.zypj.bedwars.common.logger.Debug;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -190,7 +191,7 @@ public class YAML extends YamlConfiguration {
     }
 
     private void logError(String message, Throwable throwable) {
-        plugin.getServer().getConsoleSender().sendMessage("§c[YAML] " + message);
+        Debug.log("§c[YAML] " + message, false);
         throwable.printStackTrace();
     }
 }
