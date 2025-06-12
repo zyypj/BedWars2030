@@ -2,11 +2,13 @@ package me.zypj.bedwars.system.explosive.fireball.service;
 
 import lombok.Getter;
 import me.zypj.bedwars.BedWarsPlugin;
+import me.zypj.bedwars.api.event.explosive.FireballUseEvent;
 import me.zypj.bedwars.common.file.path.ConfigPath;
 import me.zypj.bedwars.common.file.service.ConfigService;
 import me.zypj.bedwars.common.logger.Debug;
 import me.zypj.bedwars.system.explosive.fireball.adapter.FireballAdapter;
 import me.zypj.bedwars.system.explosive.fireball.adapter.provider.FireballAdapterProvider;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Player;
 import org.bukkit.Location;
@@ -55,6 +57,9 @@ public class FireballService {
                 dmgSelf, dmgOthers,
                 speed
         );
+
+        Bukkit.getPluginManager().callEvent(new FireballUseEvent(shooter, loc, fb));
+
         Debug.log(
                 "&e[FireballService] launched fireball by " + shooter.getName(),
                 config.getConfigBoolean("debug")
