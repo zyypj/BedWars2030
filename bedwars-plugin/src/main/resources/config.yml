@@ -1,17 +1,53 @@
+# Enable or disable debug mode for verbose internal logging (useful during development)
 debug: true
 
 tnt:
   knockback:
-    horizontal: 1.5
+    # Horizontal force applied to entities by TNT explosion
+    horizontal: 1.0
+    # Vertical lift given to entities by TNT explosion
     vertical: 0.8
 
   explosion:
+    # Explosion strength (affects blast radius and block damage)
     power: 4.0
+    # Deprecated: whether the explosion breaks blocks (no longer recommended)
     break-blocks: false
 
   damage:
+    # Amount of damage inflicted to the TNT owner when it explodes
     self: 4.0
+    # Amount of damage inflicted to other entities caught in the blast
     others: 8.0
 
   fuse-time:
+    # Time in game ticks before TNT explodes after being ignited (20 ticks = 1 second)
     ticks: 80
+
+fireball:
+  knockback:
+    # Horizontal force applied to entities by fired fireballs
+    horizontal: 1.5
+    # Vertical lift given to entities by fired fireballs
+    vertical: 0.8
+    # Configurable knockback radius
+    radius: 5.0
+
+  explosion:
+    # Explosion strength when a fireball impacts (usually smaller than TNT)
+    power: 1.0
+    # Deprecated: whether the explosion breaks blocks (no longer recommended)
+    break-blocks: false
+    # Whether the explosion should set blocks on fire around the impact
+    make-fire: true
+
+  damage:
+    # Damage to shooter if their own fireball hits something
+    self: 2.0
+    # Damage to other entities hit by the fireball explosion
+    others: 4.0
+
+  # Multiplier applied to default fireball speed (use higher value for faster projectiles)
+  speed-multiplier: 4.0
+  # Cooldown time in seconds between consecutive fireball launches
+  cooldown: 0.5

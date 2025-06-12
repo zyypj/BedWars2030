@@ -9,6 +9,7 @@ import me.zypj.bedwars.common.file.service.ConfigService;
 import me.zypj.bedwars.common.logger.Debug;
 import me.zypj.bedwars.command.manager.SubInstanceManager;
 import me.zypj.bedwars.system.explosive.tnt.service.TntService;
+import me.zypj.bedwars.system.explosive.fireball.service.FireballService;
 
 @Getter
 @RequiredArgsConstructor
@@ -20,6 +21,7 @@ public class PluginBootstrap {
     private HologramService hologramService;
 
     private TntService tntService;
+    private FireballService fireballService;
 
     private SubInstanceManager subInstanceManager;
 
@@ -45,6 +47,7 @@ public class PluginBootstrap {
         hologramService = new HologramService();
 
         tntService = new TntService(plugin);
+        fireballService = new FireballService(plugin);
 
         Debug.log("&aAPI services loaded in " + stopwatch.stop() + "!", true);
         Debug.log("", true);
@@ -56,6 +59,7 @@ public class PluginBootstrap {
         Debug.log("&eLoading SubCommands instances...", true);
 
         subInstanceManager = new SubInstanceManager(plugin);
+        subInstanceManager.init();
 
         Debug.log("&aSubCommands instances loaded in " + stopwatch.stop() + "!", true);
         Debug.log("", true);

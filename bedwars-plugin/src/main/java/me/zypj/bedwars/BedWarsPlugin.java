@@ -4,6 +4,7 @@ import com.google.common.base.Stopwatch;
 import lombok.Getter;
 import me.zypj.bedwars.common.logger.Debug;
 import me.zypj.bedwars.command.MainCommand;
+import me.zypj.bedwars.listener.explosive.FireballListener;
 import me.zypj.bedwars.listener.explosive.TntListener;
 import me.zypj.bedwars.loader.PluginBootstrap;
 import org.bukkit.event.Listener;
@@ -52,7 +53,8 @@ public final class BedWarsPlugin extends JavaPlugin {
         Debug.log("&eLoading listeners...", true);
 
         registerListeners(
-                new TntListener(this)
+                new TntListener(this),
+                new FireballListener(this)
         );
 
         Debug.log("&aListeners loaded in " + stopwatch.stop() + "!", true);
