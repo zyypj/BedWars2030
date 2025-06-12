@@ -101,6 +101,7 @@ public class TntListener implements Listener {
         TNTPrimed tnt = (TNTPrimed) e.getEntity();
         boolean breakBlocks = tntService.getConfig()
                 .getConfigBoolean(ConfigPath.TNT_EXPLOSION_BREAK_BLOCKS);
+        // TODO: Break blocks placed by players in arena
         if (!breakBlocks) e.blockList().clear();
 
         e.setCancelled(true);
