@@ -2,11 +2,13 @@ package me.zypj.bedwars.system.explosive.tnt.service;
 
 import lombok.Getter;
 import me.zypj.bedwars.BedWarsPlugin;
+import me.zypj.bedwars.api.event.explosive.TntUseEvent;
 import me.zypj.bedwars.system.explosive.tnt.adapter.TntAdapter;
 import me.zypj.bedwars.system.explosive.tnt.adapter.provider.TntAdapterProvider;
 import me.zypj.bedwars.common.file.path.ConfigPath;
 import me.zypj.bedwars.common.file.service.ConfigService;
 import me.zypj.bedwars.common.logger.Debug;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
@@ -40,6 +42,8 @@ public class TntService {
                 dmgSelf, dmgOthers,
                 fuse
         );
+
+        Bukkit.getPluginManager().callEvent(new TntUseEvent(shooter, loc, tnt));
 
         Debug.log("&e[TNTService] spawned TNT at " + loc, true);
         return tnt;
