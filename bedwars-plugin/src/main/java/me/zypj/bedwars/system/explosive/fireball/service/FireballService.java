@@ -64,7 +64,15 @@ public class FireballService {
     }
 
     private Settings loadSettings() {
-        return new Settings(config.getConfigDouble(ConfigPath.FIREBALL_KNOCKBACK_HORIZONTAL), config.getConfigDouble(ConfigPath.FIREBALL_KNOCKBACK_VERTICAL), (float) config.getConfigDouble(ConfigPath.FIREBALL_EXPLOSION_POWER), config.getConfigBoolean(ConfigPath.FIREBALL_EXPLOSION_BREAK_BLOCKS), config.getConfigBoolean(ConfigPath.FIREBALL_EXPLOSION_MAKE_FIRE), config.getConfigDouble(ConfigPath.FIREBALL_DAMAGE_SELF), config.getConfigDouble(ConfigPath.FIREBALL_DAMAGE_OTHERS), config.getConfigDouble(ConfigPath.FIREBALL_SPEED_MULTIPLIER));
+        return new Settings(
+                config.getConfigDouble(ConfigPath.FIREBALL_KNOCKBACK_HORIZONTAL),
+                config.getConfigDouble(ConfigPath.FIREBALL_KNOCKBACK_VERTICAL),
+                (float) config.getConfigDouble(ConfigPath.FIREBALL_EXPLOSION_POWER),
+                config.getConfigBoolean(ConfigPath.FIREBALL_EXPLOSION_BREAK_BLOCKS),
+                config.getConfigBoolean(ConfigPath.FIREBALL_EXPLOSION_MAKE_FIRE),
+                config.getConfigDouble(ConfigPath.FIREBALL_DAMAGE_SELF),
+                config.getConfigDouble(ConfigPath.FIREBALL_DAMAGE_OTHERS), 
+                config.getConfigDouble(ConfigPath.FIREBALL_SPEED_MULTIPLIER));
     }
 
     private static class Settings {
