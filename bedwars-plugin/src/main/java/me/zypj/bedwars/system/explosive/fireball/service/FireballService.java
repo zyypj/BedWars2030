@@ -9,9 +9,9 @@ import me.zypj.bedwars.common.logger.Debug;
 import me.zypj.bedwars.system.explosive.fireball.adapter.FireballAdapter;
 import me.zypj.bedwars.system.explosive.fireball.adapter.provider.FireballAdapterProvider;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Player;
-import org.bukkit.Location;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,38 +32,60 @@ public class FireballService {
 
     public boolean isOnCooldown(Player p) {
         double cdSec = config.getConfigDouble(ConfigPath.FIREBALL_COOLDOWN);
-        return lastUse.containsKey(p)
-                && (System.currentTimeMillis() - lastUse.get(p)) < (long) (cdSec * 1000);
+        return lastUse.containsKey(p) && (System.currentTimeMillis() - lastUse.get(p)) < (long) (cdSec * 1000);
     }
 
     public Fireball launchFireball(Player shooter, Location loc) {
         if (isOnCooldown(shooter)) return null;
         lastUse.put(shooter, System.currentTimeMillis());
 
-        double kbH = config.getConfigDouble(ConfigPath.FIREBALL_KNOCKBACK_HORIZONTAL);
-        double kbV = config.getConfigDouble(ConfigPath.FIREBALL_KNOCKBACK_VERTICAL);
-        float power = (float) config.getConfigDouble(ConfigPath.FIREBALL_EXPLOSION_POWER);
-        boolean breakBlocks = config.getConfigBoolean(ConfigPath.FIREBALL_EXPLOSION_BREAK_BLOCKS);
-        boolean makeFire = config.getConfigBoolean(ConfigPath.FIREBALL_EXPLOSION_MAKE_FIRE);
-        double dmgSelf = config.getConfigDouble(ConfigPath.FIREBALL_DAMAGE_SELF);
-        double dmgOthers = config.getConfigDouble(ConfigPath.FIREBALL_DAMAGE_OTHERS);
-        double speed = config.getConfigDouble(ConfigPath.FIREBALL_SPEED_MULTIPLIER);
+        Settings s = loadSettings();
 
-        Fireball fb = adapter.spawnFireball(
-                shooter, loc,
-                kbH, kbV,
-                power, breakBlocks,
-                makeFire,
-                dmgSelf, dmgOthers,
-                speed
-        );
+        Fireball fb = adapter.spawnFireball(shooter,
+                loc,
+                s.kbHorizontal,
+                s.kbVertical,
+                s.power,
+                s.breakBlocks,
+                s.makeFire,
+                s.dmgSelf,
+                s.dmgOthers,
+                s.speed);
 
-        Bukkit.getPluginManager().callEvent(new FireballUseEvent(shooter, loc, fb));
+        FireballUseEvent event = new FireballUseEvent(shooter, loc, fb);
+        Bukkit.getPluginManager().callEvent(event);
+        if (event.isCancelled()) {
+            fb.remove();
+            return null;
+        }
 
-        Debug.log(
-                "&e[FireballService] launched fireball by " + shooter.getName(),
-                config.getConfigBoolean("debug")
-        );
+        Debug.log(String.format("[FireballService] launched fireball by %s at %s", shooter.getName(), loc), true);
         return fb;
+    }
+
+    private Settings loadSettings() {
+        return new Settings(config.getConfigDouble(ConfigPath.FIREBALL_KNOCKBACK_HORIZONTAL), config.getConfigDouble(ConfigPath.FIREBALL_KNOCKBACK_VERTICAL), (float) config.getConfigDouble(ConfigPath.FIREBALL_EXPLOSION_POWER), config.getConfigBoolean(ConfigPath.FIREBALL_EXPLOSION_BREAK_BLOCKS), config.getConfigBoolean(ConfigPath.FIREBALL_EXPLOSION_MAKE_FIRE), config.getConfigDouble(ConfigPath.FIREBALL_DAMAGE_SELF), config.getConfigDouble(ConfigPath.FIREBALL_DAMAGE_OTHERS), config.getConfigDouble(ConfigPath.FIREBALL_SPEED_MULTIPLIER));
+    }
+
+    private static class Settings {
+        final double kbHorizontal;
+        final double kbVertical;
+        final float power;
+        final boolean breakBlocks;
+        final boolean makeFire;
+        final double dmgSelf;
+        final double dmgOthers;
+        final double speed;
+
+        Settings(double kbHorizontal, double kbVertical, float power, boolean breakBlocks, boolean makeFire, double dmgSelf, double dmgOthers, double speed) {
+            this.kbHorizontal = kbHorizontal;
+            this.kbVertical = kbVertical;
+            this.power = power;
+            this.breakBlocks = breakBlocks;
+            this.makeFire = makeFire;
+            this.dmgSelf = dmgSelf;
+            this.dmgOthers = dmgOthers;
+            this.speed = speed;
+        }
     }
 }
