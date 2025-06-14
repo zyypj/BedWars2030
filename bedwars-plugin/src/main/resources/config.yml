@@ -1,4 +1,4 @@
-# Enable or disable debug mode for verbose internal logging (useful during development)
+# Enable or disable debug mode for verbose internal logging (useful during development and bug report)
 debug: true
 
 tnt:
@@ -51,3 +51,31 @@ fireball:
   speed-multiplier: 4.0
   # Cooldown time in seconds between consecutive fireball launches
   cooldown: 0.5
+
+egg-bridge:
+  # Time in seconds that the egg continues building
+  duration: 2
+
+  bridge:
+    # How many blocks at most will be generated per egg (0 to unlimited)
+    max-length: 512
+    # Width (number of blocks per cross-section)
+    width: 3
+    # Height relative to the egg (e.g. -1 = one block lower)
+    height-offset: -3
+
+  projectile:
+    # Egg speed multiplier
+    speed-multiplier: 1.0
+    # If the egg is affected by gravity
+    gravity-enabled: true
+    # Cooldown in seconds between casts
+    cooldown: 1.0
+
+  particles:
+    enabled: true
+    # Particle type (e.g. REDSTONE, SMOKE)
+    type: STEP_SOUND
+    data: 4
+    # Interval in ticks between particle emissions
+    interval-ticks: 5
