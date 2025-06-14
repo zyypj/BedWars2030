@@ -3,6 +3,7 @@ package me.zypj.bedwars.listener.explosive;
 import me.zypj.bedwars.BedWarsPlugin;
 import me.zypj.bedwars.common.file.path.ConfigPath;
 import me.zypj.bedwars.system.explosive.fireball.service.FireballService;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Fireball;
@@ -38,9 +39,10 @@ public class FireballListener implements Listener {
         e.setCancelled(true);
         if (service.isOnCooldown(player)) return;
 
-        itemInHand.setAmount(itemInHand.getAmount() - 1);
-        player.setItemInHand(itemInHand.getAmount() > 0 ? itemInHand : null);
-
+        if (player.getGameMode() != GameMode.CREATIVE) {
+            itemInHand.setAmount(itemInHand.getAmount() - 1);
+            player.setItemInHand(itemInHand.getAmount() > 0 ? itemInHand : null);
+        }
         Vector dir = player.getLocation().getDirection().clone();
         dir.setY(0);
         dir.normalize();

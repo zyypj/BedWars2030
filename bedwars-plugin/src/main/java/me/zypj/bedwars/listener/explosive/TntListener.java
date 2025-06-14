@@ -5,6 +5,7 @@ import me.zypj.bedwars.BedWarsPlugin;
 import me.zypj.bedwars.common.file.path.ConfigPath;
 import me.zypj.bedwars.common.util.TimeUtil;
 import me.zypj.bedwars.system.explosive.tnt.service.TntService;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -42,14 +43,10 @@ public class TntListener implements Listener {
 
         Player player = e.getPlayer();
         ItemStack itemInHand = player.getItemInHand();
-        if (itemInHand != null && itemInHand.getType() == Material.TNT) {
-            int amount = itemInHand.getAmount() - 1;
-            if (amount > 0) {
-                itemInHand.setAmount(amount);
-                player.setItemInHand(itemInHand);
-            } else {
-                player.setItemInHand(null);
-            }
+        
+        if (player.getGameMode() != GameMode.CREATIVE) {
+            itemInHand.setAmount(itemInHand.getAmount() - 1);
+            player.setItemInHand(itemInHand.getAmount() > 0 ? itemInHand : null);
         }
 
         TNTPrimed tnt = tntService.spawnTnt(
