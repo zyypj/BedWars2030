@@ -79,3 +79,13 @@ egg-bridge:
     data: 4
     # Interval in ticks between particle emissions
     interval-ticks: 5
+
+database:
+  # MySQL (Hikari), SQLite
+  type: SQLite
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "bedwars2030"
+    username: "root"
+    password: ""

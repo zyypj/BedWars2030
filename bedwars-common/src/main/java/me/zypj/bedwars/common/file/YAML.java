@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -185,12 +186,12 @@ public class YAML extends YamlConfiguration {
         load(configFile);
     }
 
-    private void copyResource(InputStream in, File dest) throws IOException {
+    private void copyResource(InputStream in, @NotNull File dest) throws IOException {
         Files.copy(in, dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
         in.close();
     }
 
-    private void logError(String message, Throwable throwable) {
+    private void logError(String message, @NotNull Throwable throwable) {
         Debug.log("§c[YAML] " + message, false);
         throwable.printStackTrace();
     }
