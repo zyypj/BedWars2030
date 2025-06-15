@@ -29,16 +29,21 @@ public class TntService {
     public TNTPrimed spawnTnt(Player shooter, Location loc) {
         Settings s = loadSettings();
 
-        TNTPrimed tnt = adapter.spawnTnt(
-                shooter, loc,
-                s.kbHorizontal,
-                s.kbVertical,
-                s.power,
-                s.breakBlocks,
-                s.dmgSelf,
-                s.dmgOthers,
-                s.fuseTicks
-        );
+        TNTPrimed tnt = null;
+        try {
+            tnt = adapter.spawnTnt(
+                    shooter, loc,
+                    s.kbHorizontal,
+                    s.kbVertical,
+                    s.power,
+                    s.breakBlocks,
+                    s.dmgSelf,
+                    s.dmgOthers,
+                    s.fuseTicks
+            );
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
 
         TntUseEvent event = new TntUseEvent(shooter, loc, tnt);
         Bukkit.getPluginManager().callEvent(event);

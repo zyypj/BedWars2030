@@ -14,5 +14,5 @@ public interface TntAdapter {
                        boolean breakBlocks,
                        double damageSelf,
                        double damageOthers,
-                       int fuseTicks);
+                       int fuseTicks) throws IllegalAccessException;
 }
