@@ -43,7 +43,7 @@ public class TntListener implements Listener {
 
         Player player = e.getPlayer();
         ItemStack itemInHand = player.getItemInHand();
-        
+
         if (player.getGameMode() != GameMode.CREATIVE) {
             itemInHand.setAmount(itemInHand.getAmount() - 1);
             player.setItemInHand(itemInHand.getAmount() > 0 ? itemInHand : null);
