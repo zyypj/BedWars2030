@@ -19,6 +19,8 @@ public class ConfigPath {
     public static String TNT_FUSE_PREFIX = TNT_PREFIX + "fuse-time.";
     public static String TNT_FUSE_TICK = TNT_FUSE_PREFIX + "ticks";
 
+    public static String TNT_FALL_DAMAGE_MULTIPLIER = TNT_PREFIX + "fall-damage-multiplier";
+
     // Fireball
     public static String FIREBALL_PREFIX = "fireball.";
 
@@ -39,6 +41,7 @@ public class ConfigPath {
     public static String FIREBALL_SPEED_MULTIPLIER = FIREBALL_PREFIX + "speed-multiplier";
     public static String FIREBALL_COOLDOWN = FIREBALL_PREFIX + "cooldown";
     public static String FIREBALL_HIT_ENABLED = FIREBALL_PREFIX + "hit-enabled";
+    public static String FIREBALL_FALL_DAMAGE_MULTIPLIER = FIREBALL_PREFIX + "fall-damage-multiplier";
 
     // Egg-Bridge
     public static String EGG_BRIDGE_PREFIX = "egg-bridge.";

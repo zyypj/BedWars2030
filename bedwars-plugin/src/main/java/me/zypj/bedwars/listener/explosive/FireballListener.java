@@ -14,15 +14,18 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.*;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.util.Vector;
 
 import java.util.UUID;
 
 public class FireballListener implements Listener {
 
+    private final BedWarsPlugin plugin;
     private final FireballService service;
 
     public FireballListener(BedWarsPlugin plugin) {
+        this.plugin = plugin;
         this.service = plugin.getPluginBootstrap().getFireballService();
     }
 
@@ -96,6 +99,9 @@ public class FireballListener implements Listener {
                     .multiply(kbH);
             v.setY(kbV);
             player.setVelocity(v);
+
+            player.setMetadata("fall-fireball",
+                    new FixedMetadataValue(plugin, true));
         }
     }
 

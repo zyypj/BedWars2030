@@ -24,6 +24,9 @@ tnt:
     # Time in game ticks before TNT explodes after being ignited (20 ticks = 1 second)
     ticks: 40
 
+    # Multiplier applied to fall‐damage after being launched by TNT (0 = no damage, 1 = full damage)
+    fall-damage-multiplier: 0.5
+
 fireball:
   knockback:
     # Horizontal force applied to entities by fired fireballs
@@ -53,6 +56,8 @@ fireball:
   cooldown: 0.1
   # Whether players can hit (melee‐attack) a launched fireball
   hit-enabled: true
+  # Multiplier applied to fall‐damage after being launched by a fireball
+  fall-damage-multiplier: 0.5
 
 egg-bridge:
   # Time in seconds that the egg continues building

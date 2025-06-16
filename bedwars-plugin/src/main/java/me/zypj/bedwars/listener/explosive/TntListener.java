@@ -18,6 +18,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.ExplosionPrimeEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
@@ -124,6 +125,8 @@ public class TntListener implements Listener {
             Vector dir = p.getLocation().toVector().subtract(loc.toVector()).normalize();
             dir.multiply(kbH).setY(kbV);
             p.setVelocity(dir);
+
+            p.setMetadata("fall-tnt", new FixedMetadataValue(plugin, true));
         }
     }
 
