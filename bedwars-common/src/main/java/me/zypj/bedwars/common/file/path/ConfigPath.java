@@ -59,4 +59,7 @@ public class ConfigPath {
     public static String EGG_BRIDGE_PARTICLES_TYPE = EGG_BRIDGE_PARTICLES_PREFIX + "type";
     public static String EGG_BRIDGE_PARTICLES_DATA = EGG_BRIDGE_PARTICLES_PREFIX + "data";
     public static String EGG_BRIDGE_PARTICLES_INTERVAL_TICKS = EGG_BRIDGE_PARTICLES_PREFIX + "interval-ticks";
+
+    // Misc
+    public static String PLAYER_HUNGRY = "player-hungry";
 }

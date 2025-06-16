@@ -82,6 +82,9 @@ egg-bridge:
     # Interval in ticks between particle emissions
     interval-ticks: 5
 
+# If players feel hungry
+player-hungry: false
+
 database:
   # MySQL (Hikari), SQLite
   type: SQLite
