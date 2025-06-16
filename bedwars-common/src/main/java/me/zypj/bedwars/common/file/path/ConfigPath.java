@@ -25,6 +25,7 @@ public class ConfigPath {
     public static String FIREBALL_KNOCKBACK_PREFIX = FIREBALL_PREFIX + "knockback.";
     public static String FIREBALL_KNOCKBACK_HORIZONTAL = FIREBALL_KNOCKBACK_PREFIX + "horizontal";
     public static String FIREBALL_KNOCKBACK_VERTICAL = FIREBALL_KNOCKBACK_PREFIX + "vertical";
+    public static String FIREBALL_KNOCKBACK_RADIUS = FIREBALL_KNOCKBACK_PREFIX + "radius";
 
     public static String FIREBALL_EXPLOSION_PREFIX = FIREBALL_PREFIX + "explosion.";
     public static String FIREBALL_EXPLOSION_POWER = FIREBALL_EXPLOSION_PREFIX + "power";
@@ -37,7 +38,7 @@ public class ConfigPath {
 
     public static String FIREBALL_SPEED_MULTIPLIER = FIREBALL_PREFIX + "speed-multiplier";
     public static String FIREBALL_COOLDOWN = FIREBALL_PREFIX + "cooldown";
-    public static String FIREBALL_KNOCKBACK_RADIUS = FIREBALL_KNOCKBACK_PREFIX + "radius";
+    public static String FIREBALL_HIT_ENABLED = FIREBALL_PREFIX + "hit-enabled";
 
     // Egg-Bridge
     public static String EGG_BRIDGE_PREFIX = "egg-bridge.";

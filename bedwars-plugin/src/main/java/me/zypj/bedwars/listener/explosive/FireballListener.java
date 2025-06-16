@@ -11,10 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.EntityExplodeEvent;
-import org.bukkit.event.entity.ExplosionPrimeEvent;
-import org.bukkit.event.entity.ProjectileHitEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
@@ -31,22 +28,26 @@ public class FireballListener implements Listener {
 
     @EventHandler
     public void onPlayerUse(PlayerInteractEvent e) {
-        if (!e.getAction().equals(Action.RIGHT_CLICK_BLOCK) && !e.getAction().equals(Action.RIGHT_CLICK_AIR)) return;
+        if (e.getAction() != Action.RIGHT_CLICK_BLOCK && e.getAction() != Action.RIGHT_CLICK_AIR) return;
+
         ItemStack itemInHand = e.getItem();
         if (itemInHand == null || itemInHand.getType() != Material.FIREBALL) return;
 
         Player player = e.getPlayer();
         e.setCancelled(true);
+
         if (service.isOnCooldown(player)) return;
 
         if (player.getGameMode() != GameMode.CREATIVE) {
             itemInHand.setAmount(itemInHand.getAmount() - 1);
             player.setItemInHand(itemInHand.getAmount() > 0 ? itemInHand : null);
         }
+
         Vector dir = player.getLocation().getDirection().clone();
         dir.setY(0);
         dir.normalize();
-        Location spawnLoc = player.getLocation().subtract(dir.multiply(0.5)).add(0, 1.0, 0);
+
+        Location spawnLoc = player.getEyeLocation().clone().add(dir.multiply(0.5));
 
         service.launchFireball(player, spawnLoc);
     }
@@ -67,11 +68,11 @@ public class FireballListener implements Listener {
 
         double radius = service.getConfig()
                 .getConfigDouble(ConfigPath.FIREBALL_KNOCKBACK_RADIUS);
-        double kbH    = service.getConfig()
+        double kbH = service.getConfig()
                 .getConfigDouble(ConfigPath.FIREBALL_KNOCKBACK_HORIZONTAL);
-        double kbV    = service.getConfig()
+        double kbV = service.getConfig()
                 .getConfigDouble(ConfigPath.FIREBALL_KNOCKBACK_VERTICAL);
-        double dmgSelf   = service.getConfig()
+        double dmgSelf = service.getConfig()
                 .getConfigDouble(ConfigPath.FIREBALL_DAMAGE_SELF);
         double dmgOthers = service.getConfig()
                 .getConfigDouble(ConfigPath.FIREBALL_DAMAGE_OTHERS);
@@ -111,5 +112,14 @@ public class FireballListener implements Listener {
         if (!(e.getEntity() instanceof Fireball)) return;
 
         e.blockList().clear();
+    }
+
+    @EventHandler
+    public void onFireballHitByPlayer(EntityDamageByEntityEvent e) {
+        if (!(e.getEntity() instanceof Fireball) || !(e.getDamager() instanceof Player)) {
+            return;
+        }
+
+        if (!service.getConfig().getConfigBoolean(ConfigPath.FIREBALL_HIT_ENABLED)) e.setCancelled(true);
     }
 }

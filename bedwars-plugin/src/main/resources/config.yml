@@ -22,7 +22,7 @@ tnt:
 
   fuse-time:
     # Time in game ticks before TNT explodes after being ignited (20 ticks = 1 second)
-    ticks: 80
+    ticks: 40
 
 fireball:
   knockback:
@@ -50,7 +50,9 @@ fireball:
   # Multiplier applied to default fireball speed (use higher value for faster projectiles)
   speed-multiplier: 4.0
   # Cooldown time in seconds between consecutive fireball launches
-  cooldown: 0.5
+  cooldown: 0.1
+  # Whether players can hit (melee‐attack) a launched fireball
+  hit-enabled: true
 
 egg-bridge:
   # Time in seconds that the egg continues building
