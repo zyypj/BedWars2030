@@ -61,7 +61,7 @@ project(':bedwars-plugin') {
 }
 
 shadowJar {
-    archiveFileName.set("BedWars2023-${project.version}.jar")
+    archiveFileName.set("BedWars2030-${project.version}.jar")
 
     relocate 'me.zypj.bedwars.common', 'me.zypj.bedwars.common'
     relocate 'me.zypj.bedwars', 'me.zypj.bedwars'
