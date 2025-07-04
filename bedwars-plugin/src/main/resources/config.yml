@@ -1,6 +1,13 @@
 # Enable or disable debug mode for verbose internal logging (useful during development and bug report)
 debug: true
 
+# Default language for all players
+# Available: en (english), pt (portuguese)
+language: en
+# Languages disabled
+disabled-languages:
+  - iso
+
 tnt:
   knockback:
     # Horizontal force applied to entities by TNT explosion

@@ -4,3 +4,5 @@ main: me.zypj.bedwars.BedWarsPlugin
 commands:
   bedwars:
     aliases: [bw]
+  language:
+    aliases: [idioma, lang]

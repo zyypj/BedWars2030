@@ -1,0 +1,8 @@
+language-name: "Português"
+language-command:
+  error-usage: "&cUse: /idioma <iso>"
+  error-not-found: "&cLinguagem não encontrada."
+  changed: "&aLinguagem alterada para {LANGUAGE-NAME}!"
+no-permission: "&4&lERRO! &cVocê não tem permissão."
+you-are-cooldown: "&4&lERRO! &cVocê está não pode fazer isso agora! Aguarde mais {TIME}s para fazer isso novamente."
+command-not-found: "&4&lERRO! &cSub-Comando não encontrado."

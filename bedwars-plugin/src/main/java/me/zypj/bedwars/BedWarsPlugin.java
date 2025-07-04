@@ -2,6 +2,7 @@ package me.zypj.bedwars;
 
 import com.google.common.base.Stopwatch;
 import lombok.Getter;
+import me.zypj.bedwars.command.LanguageCommand;
 import me.zypj.bedwars.common.logger.Debug;
 import me.zypj.bedwars.command.MainCommand;
 import me.zypj.bedwars.listener.explosive.FireballListener;
@@ -35,7 +36,8 @@ public final class BedWarsPlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        pluginBootstrap.shutdown();
+        Debug.log("&aPlugin off, thanks for the use! Made with great affection by tadeu (@zypj)", false);
     }
 
     private void loadServices() {
@@ -72,6 +74,7 @@ public final class BedWarsPlugin extends JavaPlugin {
         Debug.log("&eLoading commands...", true);
 
         getCommand("bedwars").setExecutor(new MainCommand(this));
+        getCommand("language").setExecutor(new LanguageCommand(this));
 
         Debug.log("&aCommands loaded in " + stopwatch.stop() + "!", true);
         Debug.log("", true);

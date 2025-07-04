@@ -38,6 +38,8 @@ subprojects {
         compileOnly 'org.projectlombok:lombok:1.18.38'
 
         implementation 'com.github.cryptomorin:XSeries:13.3.1'
+        implementation 'com.zaxxer:HikariCP:4.0.3'
+        implementation 'com.google.guava:guava:33.4.8-jre'
 
         annotationProcessor 'org.projectlombok:lombok:1.18.38'
     }

@@ -1,0 +1,8 @@
+language-name: "English"
+language-command:
+  error-usage: "&cUse: /language <iso>"
+  error-not-found: "&cLanguage not found."
+  changed: "&aLanguage changed to {LANGUAGE-NAME}!"
+no-permission: "&4&lERROR! &cYou don't have permission."
+you-are-cooldown: "&4&lERROR! &cYou can't do that now! Wait for more {TIME}s to do this again."
+command-not-found: "&4&lERROR! &cSub-Command not found."

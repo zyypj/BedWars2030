@@ -2,6 +2,7 @@ package me.zypj.bedwars.command;
 
 import lombok.RequiredArgsConstructor;
 import me.zypj.bedwars.BedWarsPlugin;
+import me.zypj.bedwars.common.file.path.MessagePath;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -27,7 +28,7 @@ public class MainCommand implements CommandExecutor {
             case "reload":
                 plugin.getPluginBootstrap().getSubInstanceManager().getReloadCommand().execute(player);
             default:
-                // TODO: Send no found command
+                plugin.getPluginBootstrap().getMessageService().getMessage(player, MessagePath.COMMAND_NOT_FOUND);
         }
 
         return false;
