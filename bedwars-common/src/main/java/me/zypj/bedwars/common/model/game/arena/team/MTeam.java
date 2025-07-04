@@ -1,10 +1,10 @@
-package me.zypj.bedwars.common.model.arena.team;
+package me.zypj.bedwars.common.model.game.arena.team;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import me.zypj.bedwars.common.enums.GeneratorType;
-import me.zypj.bedwars.common.model.arena.MArena;
-import me.zypj.bedwars.common.model.arena.MGenerator;
+import me.zypj.bedwars.common.model.game.arena.MArena;
+import me.zypj.bedwars.common.model.game.arena.MGenerator;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;

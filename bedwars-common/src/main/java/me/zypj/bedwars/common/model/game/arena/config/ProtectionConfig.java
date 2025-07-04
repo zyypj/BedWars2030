@@ -1,4 +1,4 @@
-package me.zypj.bedwars.common.model.arena.config;
+package me.zypj.bedwars.common.model.game.arena.config;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

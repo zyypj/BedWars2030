@@ -1,9 +1,9 @@
-package me.zypj.bedwars.common.model.arena;
+package me.zypj.bedwars.common.model.game.arena;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import me.zypj.bedwars.common.enums.GeneratorType;
-import me.zypj.bedwars.common.model.arena.team.MTeam;
+import me.zypj.bedwars.common.model.game.arena.team.MTeam;
 import org.bukkit.Location;
 
 @Getter
