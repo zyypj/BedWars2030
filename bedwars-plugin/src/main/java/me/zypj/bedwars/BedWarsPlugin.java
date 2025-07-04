@@ -7,6 +7,7 @@ import me.zypj.bedwars.command.MainCommand;
 import me.zypj.bedwars.listener.explosive.FireballListener;
 import me.zypj.bedwars.listener.explosive.TntListener;
 import me.zypj.bedwars.listener.misc.player.PlayerMiscListener;
+import me.zypj.bedwars.listener.misc.server.ServerMiscListener;
 import me.zypj.bedwars.listener.projectil.EggBridgeListener;
 import me.zypj.bedwars.loader.PluginBootstrap;
 import org.bukkit.event.Listener;
@@ -58,7 +59,8 @@ public final class BedWarsPlugin extends JavaPlugin {
                 new TntListener(this),
                 new FireballListener(this),
                 new EggBridgeListener(this),
-                new PlayerMiscListener(this)
+                new PlayerMiscListener(this),
+                new ServerMiscListener()
         );
 
         Debug.log("&aListeners loaded in " + stopwatch.stop() + "!", true);

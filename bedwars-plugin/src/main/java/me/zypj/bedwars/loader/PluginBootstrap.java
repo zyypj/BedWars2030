@@ -4,13 +4,13 @@ import com.google.common.base.Stopwatch;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import me.zypj.bedwars.BedWarsPlugin;
-import me.zypj.bedwars.system.projectil.eggbridge.service.EggBridgeService;
-import me.zypj.bedwars.system.visual.hologram.service.HologramService;
+import me.zypj.bedwars.systems.projectil.eggbridge.service.EggBridgeService;
+import me.zypj.bedwars.systems.visual.hologram.service.HologramService;
 import me.zypj.bedwars.common.file.service.ConfigService;
 import me.zypj.bedwars.common.logger.Debug;
 import me.zypj.bedwars.command.manager.SubInstanceManager;
-import me.zypj.bedwars.system.explosive.tnt.service.TntService;
-import me.zypj.bedwars.system.explosive.fireball.service.FireballService;
+import me.zypj.bedwars.systems.explosive.tnt.service.TntService;
+import me.zypj.bedwars.systems.explosive.fireball.service.FireballService;
 
 @Getter
 @RequiredArgsConstructor
@@ -34,10 +34,22 @@ public class PluginBootstrap {
         Debug.log("&eLoading instances...", true);
 
         plugin.saveDefaultConfig();
+        loadFiles();
         loadServices();
         loadSubInstances();
 
         Debug.log("&aInstances loaded in " + stopwatch.stop() + "!", true);
+        Debug.log("", true);
+    }
+
+    private void loadFiles() {
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        Debug.log("", true);
+        Debug.log("&eLoading files ...", true);
+
+        plugin.saveDefaultConfig();
+
+        Debug.log("&aFiles loaded in " + stopwatch.stop() + "!", true);
         Debug.log("", true);
     }
 

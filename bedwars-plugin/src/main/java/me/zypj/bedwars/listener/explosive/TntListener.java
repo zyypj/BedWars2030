@@ -4,7 +4,7 @@ import lombok.var;
 import me.zypj.bedwars.BedWarsPlugin;
 import me.zypj.bedwars.common.file.path.ConfigPath;
 import me.zypj.bedwars.common.util.TimeUtil;
-import me.zypj.bedwars.system.explosive.tnt.service.TntService;
+import me.zypj.bedwars.systems.explosive.tnt.service.TntService;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;

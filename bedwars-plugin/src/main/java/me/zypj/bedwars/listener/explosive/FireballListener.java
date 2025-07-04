@@ -2,7 +2,7 @@ package me.zypj.bedwars.listener.explosive;
 
 import me.zypj.bedwars.BedWarsPlugin;
 import me.zypj.bedwars.common.file.path.ConfigPath;
-import me.zypj.bedwars.system.explosive.fireball.service.FireballService;
+import me.zypj.bedwars.systems.explosive.fireball.service.FireballService;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;

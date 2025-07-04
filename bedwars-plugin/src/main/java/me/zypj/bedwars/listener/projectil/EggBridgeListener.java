@@ -1,7 +1,7 @@
 package me.zypj.bedwars.listener.projectil;
 
 import me.zypj.bedwars.BedWarsPlugin;
-import me.zypj.bedwars.system.projectil.eggbridge.service.EggBridgeService;
+import me.zypj.bedwars.systems.projectil.eggbridge.service.EggBridgeService;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;

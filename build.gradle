@@ -60,6 +60,12 @@ project(':bedwars-plugin') {
     }
 }
 
+project(':bedwars-common') {
+    dependencies {
+        implementation project(':bedwars-api')
+    }
+}
+
 shadowJar {
     archiveFileName.set("BedWars2030-${project.version}.jar")
 

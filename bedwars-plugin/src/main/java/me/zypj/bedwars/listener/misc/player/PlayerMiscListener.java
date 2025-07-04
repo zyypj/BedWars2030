@@ -32,14 +32,4 @@ public class PlayerMiscListener implements Listener {
             e.setCancelled(true);
         }
     }
-
-    @EventHandler
-    public void onWeatherChange(WeatherChangeEvent e) {
-        e.setCancelled(true);
-    }
-
-    @EventHandler
-    public void onLeavesDecay(LeavesDecayEvent e) {
-        e.setCancelled(true);
-    }
 }

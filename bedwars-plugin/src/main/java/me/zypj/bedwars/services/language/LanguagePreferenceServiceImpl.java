@@ -1,4 +1,4 @@
-package me.zypj.bedwars.systems.language;
+package me.zypj.bedwars.services.language;
 
 import me.zypj.bedwars.api.language.LanguagePreferenceService;
 import me.zypj.bedwars.common.services.language.PlayerLanguageCacheService;
@@ -22,7 +22,7 @@ public class LanguagePreferenceServiceImpl implements LanguagePreferenceService 
 
     @Override
     public Optional<String> getLanguage(Player player) {
-        return cacheService.get(player.getUniqueId());
+        return getLanguage(player.getUniqueId());
     }
 
     @Override
@@ -32,7 +32,7 @@ public class LanguagePreferenceServiceImpl implements LanguagePreferenceService 
 
     @Override
     public void setLanguage(Player player, String iso) {
-        cacheService.put(player.getUniqueId(), iso.toLowerCase());
+        setLanguage(player.getUniqueId(), iso);
     }
 
     @Override
