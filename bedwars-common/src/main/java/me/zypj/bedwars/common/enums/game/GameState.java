@@ -1,4 +1,4 @@
-package me.zypj.bedwars.common.enums;
+package me.zypj.bedwars.common.enums.game;
 
 public enum GameState {
     WAITING,

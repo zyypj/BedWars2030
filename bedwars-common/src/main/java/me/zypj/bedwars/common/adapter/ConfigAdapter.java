@@ -1,7 +1,7 @@
 package me.zypj.bedwars.common.adapter;
 
 import me.zypj.bedwars.api.adapter.ConfigAdapterAPI;
-import me.zypj.bedwars.common.enums.DatabaseType;
+import me.zypj.bedwars.common.enums.database.DatabaseType;
 import me.zypj.bedwars.common.model.config.DatabaseConfig;
 import me.zypj.bedwars.common.model.config.MySQLConfig;
 import org.bukkit.configuration.file.FileConfiguration;

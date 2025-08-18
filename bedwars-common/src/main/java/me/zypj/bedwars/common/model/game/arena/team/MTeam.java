@@ -2,7 +2,7 @@ package me.zypj.bedwars.common.model.game.arena.team;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import me.zypj.bedwars.common.enums.GeneratorType;
+import me.zypj.bedwars.common.enums.game.generator.GeneratorType;
 import me.zypj.bedwars.common.model.game.arena.MArena;
 import me.zypj.bedwars.common.model.game.arena.MGenerator;
 import org.bukkit.Color;
@@ -19,7 +19,7 @@ public class MTeam {
     private final Color color;
     private final MArena arena;
 
-    private final List<Player> members;
+    private final List<Player> players;
 
     private final Location bedLocation, shopLocation, upgradeLocation;
 

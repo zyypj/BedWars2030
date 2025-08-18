@@ -13,7 +13,7 @@ import me.zypj.bedwars.api.language.LanguagePreferenceService;
 import me.zypj.bedwars.common.adapter.ConfigAdapter;
 import me.zypj.bedwars.api.database.DatabaseManager;
 import me.zypj.bedwars.common.adapter.LanguageFileAdapter;
-import me.zypj.bedwars.common.enums.DatabaseType;
+import me.zypj.bedwars.common.enums.database.DatabaseType;
 import me.zypj.bedwars.common.model.config.DatabaseConfig;
 import me.zypj.bedwars.common.services.language.PlayerLanguageCacheService;
 import me.zypj.bedwars.services.database.MySQLDatabaseManagerImpl;
